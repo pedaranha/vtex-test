@@ -1,0 +1,114 @@
+{
+  "store.home": {
+    "blocks": ["search-result-layout.customQuery#home"]
+  },
+
+  "search-result-layout.customQuery#home": {
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip",
+        "maxItemsPerPage": 12
+      }
+    },
+    "blocks": ["search-result-layout.desktop#pa"]
+  },
+  "search-result-layout.desktop#pa": {
+    "children": [
+      //"flex-layout.row#searchbread",
+      //"flex-layout.row#searchtitle",
+      "search-content#pa"
+    ],
+    "props": {
+      "preventRouteChange": true
+    }
+  },
+
+  "search-content#pa": {
+    "blocks": ["gallery#pa", "not-found"]
+  },
+
+  "gallery#pa": {
+    "props": {
+      "layouts": [
+        {
+          "name": "grid",
+          "component": "GridSummary",
+          "itemsPerRow": {
+            "(min-width:1300px)": 4,
+            "desktop": 3,
+            "tablet": 3,
+            "phone": 2
+          }
+        },
+        {
+          "name": "list",
+          "component": "ListSummary",
+          "itemsPerRow": 1
+        }
+      ],
+      "ListSummary": "product-summary.shelf#pa",
+      "GridSummary": "product-summary.shelf#pa"
+    }
+  },
+
+  "product-summary.shelf#pa": {
+    "children": [
+      "modal-trigger#pa",
+      "product-summary-name",
+      "product-summary-image#pa",
+      "vtex.product-highlights@2.x:product-highlights",
+      "product-summary-price",
+      "add-to-cart-button#pa"
+    ],
+    "props": {
+      "blockClass": ["hello2", "testing"]
+    }
+  },
+  "product-summary-image#pa": {
+    "props": {
+      "displayMode": "inline",
+      "ShowNavigationArrows": true,
+      "ShowPaginationDots": true
+    }
+  },
+
+  "vtex.product-highlights@2.x:product-highlights": {
+    "children": ["product-highlight-text"]
+  },
+  "product-highlight-text": {
+    "props": {
+      "message": "pre-lancamento",
+      "link": "/collection/{highlightId}"
+    }
+  },
+  "add-to-cart-button#pa": {
+    "props": {
+      "onClickBehavior": "go-to-product-page",
+      "text": "Ver Detalhes"
+    }
+  },
+
+  "modal-trigger#pa": {
+    "children": ["rich-text#pa", "modal-layout#pa"]
+  },
+  "rich-text#pa": {
+    "props": {
+      "text": "Upmedal"
+    }
+  },
+  "modal-layout#pa": {
+    "children": ["video#pa"]
+  },
+  "video#pa": {
+    "props": {
+      "width": "100%",
+      "height": "600px",
+      "loop": false,
+      "autoPlay": true,
+      "muted": false,
+      "src": "https://www.youtube.com/watch?v=wygFqZXMIco",
+      "blockClass": "videoEl"
+    }
+  }
+}
